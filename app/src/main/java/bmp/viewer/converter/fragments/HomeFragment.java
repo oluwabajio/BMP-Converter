@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 import com.opensooq.supernova.gligar.GligarPicker;
 
 import bmp.viewer.converter.R;

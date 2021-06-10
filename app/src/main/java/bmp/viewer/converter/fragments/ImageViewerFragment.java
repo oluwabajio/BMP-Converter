@@ -97,14 +97,19 @@ public class ImageViewerFragment extends Fragment {
         try {
             if (bmpUtil.save(imageBitmap, sdcardBmpPath)) {
                 showDownloadSavedDialog(path);
+                Log.e("TAG", "saveImageAsBmp: first" );
             } else {
                 String sdcardBmpPath2 = path + "/" + new SimpleDateFormat("yyyyMM_dd-HHmmss").format(new Date()) + "file.bmp";
                 Bitmap imageBitmap2 = BitmapFactory.decodeFile(getPath());
                 BmpFile bmpFile = new BmpFile();
                 bmpFile.saveBitmap(sdcardBmpPath2, imageBitmap2);
                 showDownloadSavedDialog(path);
+                Log.e("TAG", "saveImageAsBmp: first" );
+
             }
         } catch (BufferOverflowException ex) {
+            Log.e("TAG", "saveImageAsBmp: "+ ex.getMessage() );
+
             try {
                 String sdcardBmpPath3 = path + "/" + new SimpleDateFormat("yyyyMM_dd-HHmmss").format(new Date()) + "_bmp.bmp";
                 if (BmpFile2.save(imageBitmap, sdcardBmpPath3)) {
